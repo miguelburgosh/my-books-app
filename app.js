@@ -3,6 +3,8 @@ const app     = express();
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 
+const port = Process.env.PORT || 3000 ;
+
 // data parser - used to parse post data
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -65,6 +67,6 @@ app.post('/book', (req,res) => {
     res.send({ title});
 });
 
-app.listen(3000, () => {
-    console.log('Running on port 3000');
+app.listen(port, () => {
+    console.log('Running on port' + port);
 })
